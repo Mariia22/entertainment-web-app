@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply text-base scroll-smooth;
+    }
+
+    body {
+        @apply flex flex-col justify-between items-center min-w-[375px] max-w-[1440px] leading-none bg-primary text-text;
+        font-family: "sans", sans-serif;
+    }
+
+    #root {
+        @apply max-w-[375px] overflow-hidden mt-[18px] ml-4 mr-4;
+    }
+}
