@@ -1,16 +1,17 @@
 import React from "react"
-import { NavLink, Outlet } from "react-router-dom"
-import { navigationList } from "../appNavigation"
+import { Outlet } from "react-router-dom"
+import { LayoutHeader } from "../../widgets/LayoutHeader"
+import { Logo } from "../../widgets/LayoutHeader/ui/Logo/Logo"
+import { Navigation } from "../../shared/ui/Navigation/Navigation"
+import { UserAvatar } from "../../shared/ui/UserAvatar/UserAvatar"
 
 export const BaseLayout = (
-    <div className="max-w-[375px] overflow-hidden mt-[18px] ml-4 mr-4">
-        <div>
-            {navigationList.map((link) => (
-                <NavLink key={link.id} to={link.path}>
-                    {link.icon}
-                </NavLink>
-            ))}
-        </div>
+    <div className="min-w-[375px] overflow-hidden">
+        <LayoutHeader>
+            <Logo />
+            <Navigation />
+            <UserAvatar />
+        </LayoutHeader>
         <Outlet />
     </div>
 )
