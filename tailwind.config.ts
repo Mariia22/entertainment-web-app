@@ -16,8 +16,10 @@ export default {
         extend: {
             width: {
                 "240": "240px",
+                "164": "164px",
             },
             height: {
+                "110": "110px",
                 "140": "140px",
             },
         },

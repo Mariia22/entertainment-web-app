@@ -5,26 +5,19 @@ import { errorMessage } from "../../shared/api/apiError"
 
 interface TrendingSectionProps {
     movies: dataType[]
+    handleClick: (key: string) => void
 }
 
-export const TrendingSection: React.FC<TrendingSectionProps> = ({ movies }) => {
+export const TrendingSection: React.FC<TrendingSectionProps> = ({
+    movies,
+    handleClick,
+}) => {
     const [trendMovies, setTrendMovies] = useState<dataType[]>([])
 
     useEffect(() => {
         const trend = movies.filter((movie) => movie.isTrending)
         setTrendMovies(trend)
     }, [movies])
-
-    function handleClick(key: string): void {
-        const newMovies = trendMovies.map((movie) => {
-            if (movie.title === key) {
-                movie.isBookmarked = !movie.isBookmarked
-            }
-            return movie
-        })
-
-        setTrendMovies([...newMovies])
-    }
 
     if (trendMovies.length === 0) {
         ;<div className="flex pt-4">{errorMessage.emptyTrending}</div>
