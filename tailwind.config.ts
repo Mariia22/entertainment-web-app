@@ -11,7 +11,7 @@ export default {
             text: "#FFFFFF",
         },
         fontFamily: {
-            sans: ["Outfit Light", "sans-serif"],
+            outfit: ["Outfit", "sans-serif"],
         },
         extend: {},
     },
