@@ -9,7 +9,7 @@ export const Navigation: React.FC = () => {
                 <NavLink
                     key={link.id}
                     to={link.path}
-                    className="fill-secondary [&.active]:fill-text"
+                    className="fill-secondary hover:fill-text [&.active]:fill-text"
                 >
                     {link.icon}
                 </NavLink>

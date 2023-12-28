@@ -1,7 +1,7 @@
-import MainIcon from "../../public/icons/icon-nav-home.svg"
-import MoviesIcon from "../../public/icons/icon-nav-movies.svg"
-import SeriesIcon from "../../public/icons/icon-nav-tv-series.svg"
-import BookmarkIcon from "../../public/icons/icon-nav-bookmark.svg"
+import MainIcon from "../app/assets/icons/icon-nav-home.svg"
+import MoviesIcon from "../app/assets/icons/icon-nav-movies.svg"
+import SeriesIcon from "../app/assets/icons/icon-nav-tv-series.svg"
+import BookmarkIcon from "../app/assets/icons/icon-nav-bookmark.svg"
 
 export const navigationList = [
     {
