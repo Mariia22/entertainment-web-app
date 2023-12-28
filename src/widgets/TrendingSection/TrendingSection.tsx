@@ -15,18 +15,32 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({ movies }) => {
         setTrendMovies(trend)
     }, [movies])
 
+    function handleClick(key: string): void {
+        const newMovies = trendMovies.map((movie) => {
+            if (movie.title === key) {
+                movie.isBookmarked = !movie.isBookmarked
+            }
+            return movie
+        })
+
+        setTrendMovies([...newMovies])
+    }
+
     if (trendMovies.length === 0) {
         ;<div className="flex pt-4">{errorMessage.emptyTrending}</div>
     }
 
     return (
-        <div className="flex flex-col pt-4">
+        <div className="flex w-screen pt-4">
             {trendMovies.map((movie) => (
                 <Card
                     key={movie.title}
+                    title={movie.title}
                     width="w-240"
                     height="h-140"
                     url={movie.thumbnail.trending.small}
+                    isBookmarked={movie.isBookmarked}
+                    handleClick={handleClick}
                 />
             ))}
         </div>
