@@ -13,7 +13,7 @@ export const Search: React.FC<SearchProps> = ({ placeholder }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-3 ml-4">
+        <form onSubmit={handleSubmit} className="mt-3">
             <label className="flex justify-start items-center">
                 <svg
                     className="h-6 w-6 fill-text mr-4"
@@ -31,7 +31,7 @@ export const Search: React.FC<SearchProps> = ({ placeholder }) => {
                     placeholder={placeholder}
                     value={searchText}
                     onChange={(event) => setSearchText(event.target.value)}
-                    className="bg-primary outline-none w-[214px] h-[30px] pt-3 pb-4 font-light font-outfit caret-contrast placeholder: bg-opacity-50 focus:border-b-[1px] focus:border-secondary active:border-b-[1px] active:border-secondary"
+                    className="bg-primary outline-none w-[214px] h-[30px] pt-3 pb-4 caret-contrast placeholder: bg-opacity-50 focus:border-b-[1px] focus:border-secondary active:border-b-[1px] active:border-secondary"
                 />
             </label>
         </form>

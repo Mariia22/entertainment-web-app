@@ -13,7 +13,14 @@ export default {
         fontFamily: {
             outfit: ["Outfit", "sans-serif"],
         },
-        extend: {},
+        extend: {
+            width: {
+                "240": "240px",
+            },
+            height: {
+                "140": "140px",
+            },
+        },
     },
     plugins: [],
 } satisfies Config
