@@ -20,13 +20,13 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({ movies }) => {
     }
 
     return (
-        <div className="flex pt-4">
+        <div className="flex flex-col pt-4">
             {trendMovies.map((movie) => (
                 <Card
                     key={movie.title}
                     width="w-240"
                     height="h-140"
-                    background={`bg-[url('${movie.thumbnail.trending.small}')]`}
+                    url={movie.thumbnail.trending.small}
                 />
             ))}
         </div>

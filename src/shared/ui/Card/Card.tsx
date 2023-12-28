@@ -3,13 +3,14 @@ import React from "react"
 interface CardProps {
     width: string
     height: string
-    background: string
+    url: string
 }
 
-export const Card: React.FC<CardProps> = ({ width, height, background }) => {
+export const Card: React.FC<CardProps> = ({ width, height, url }) => {
     return (
         <div
-            className={`block ${width} ${height} ${background} border-4 rounded-lg `}
+            style={{ backgroundImage: `url(${url})` }}
+            className={`block ${width} ${height} bg-cover bg-no-repeat bg-center rounded-lg`}
         />
     )
 }

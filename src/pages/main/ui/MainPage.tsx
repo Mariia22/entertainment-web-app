@@ -6,6 +6,7 @@ import { url } from "../../../shared/api/baseApi"
 import { TrendingSection } from "../../../widgets/TrendingSection/TrendingSection"
 import { errorMessage } from "../../../shared/api/apiError"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
+
 export const MainPage: React.FC = () => {
     const [movies, setMovies] = useState<dataType[]>([])
     const [error, setError] = useState<string>("")
