@@ -24,7 +24,7 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({
     }
 
     return (
-        <div className="flex w-screen pt-4">
+        <div className="flex w-screen pt-4 gap-4">
             {trendMovies.map((movie) => (
                 <Card
                     key={movie.title}
@@ -33,6 +33,10 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({
                     height="h-140"
                     url={movie.thumbnail.trending.small}
                     isBookmarked={movie.isBookmarked}
+                    year={movie.year}
+                    genre={movie.category}
+                    rating={movie.rating}
+                    isTrendingSection={true}
                     handleClick={handleClick}
                 />
             ))}

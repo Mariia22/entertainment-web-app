@@ -21,6 +21,10 @@ export const CardsLayout: React.FC<CardsLayoutProps> = ({
                     height="h-110"
                     url={item.thumbnail.regular.small}
                     isBookmarked={item.isBookmarked}
+                    year={item.year}
+                    genre={item.category}
+                    rating={item.rating}
+                    isTrendingSection={false}
                     handleClick={handleClick}
                 />
             ))}

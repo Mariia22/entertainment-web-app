@@ -24,4 +24,7 @@ interface regular {
     large: string
 }
 
-export type category = "Movie" | "TV Series"
+export enum category {
+    movie = "Movie",
+    series = "TV Series",
+}

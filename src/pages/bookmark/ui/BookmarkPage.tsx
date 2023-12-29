@@ -20,7 +20,7 @@ export const BookmarkPage: React.FC = () => {
             .then((filteredMovies) => setMovies(filteredMovies))
             .catch((error) => setError(error))
     }, [])
-    console.log(movies)
+
     function handleClick(key: string): void {
         const newMovies = movies.map((movie) => {
             if (movie.title === key) {
