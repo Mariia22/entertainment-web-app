@@ -20,7 +20,7 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({
     }, [movies])
 
     if (trendMovies.length === 0) {
-        ;<div className="flex pt-4">{errorMessage.emptyTrending}</div>
+        return <div className="flex pt-4">{errorMessage.emptyTrending}</div>
     }
 
     return (

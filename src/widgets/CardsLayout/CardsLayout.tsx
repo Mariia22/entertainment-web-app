@@ -1,0 +1,29 @@
+import React from "react"
+import { dataType } from "../../../types/data"
+import { Card } from "../../shared/ui/Card/Card"
+
+interface CardsLayoutProps {
+    movies: dataType[]
+    handleClick: (key: string) => void
+}
+
+export const CardsLayout: React.FC<CardsLayoutProps> = ({
+    movies,
+    handleClick,
+}) => {
+    return (
+        <div className="grid grid-cols-2 gap-y-4 pt-4">
+            {movies.map((item) => (
+                <Card
+                    key={item.title}
+                    title={item.title}
+                    width="w-164"
+                    height="h-110"
+                    url={item.thumbnail.regular.small}
+                    isBookmarked={item.isBookmarked}
+                    handleClick={handleClick}
+                />
+            ))}
+        </div>
+    )
+}

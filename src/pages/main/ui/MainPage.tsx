@@ -6,7 +6,7 @@ import { url } from "../../../shared/api/baseApi"
 import { TrendingSection } from "../../../widgets/TrendingSection/TrendingSection"
 import { errorMessage } from "../../../shared/api/apiError"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
-import { RecommendSection } from "../../../widgets/RecommendSection/RecommendSection"
+import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 
 export const MainPage: React.FC = () => {
     const [movies, setMovies] = useState<dataType[]>([])
@@ -45,7 +45,7 @@ export const MainPage: React.FC = () => {
                     </section>
                     <section className="flex flex-col mt-6">
                         <HeaderSection>Recommended for you</HeaderSection>
-                        <RecommendSection
+                        <CardsLayout
                             movies={movies}
                             handleClick={handleClick}
                         />

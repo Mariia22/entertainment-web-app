@@ -2,7 +2,7 @@ export type dataType = {
     title: string
     thumbnail: thumbnail
     year: number
-    category: string
+    category: category
     rating: string
     isBookmarked: boolean
     isTrending: boolean
@@ -23,3 +23,5 @@ interface regular {
     medium: string
     large: string
 }
+
+export type category = "Movie" | "TV Series"

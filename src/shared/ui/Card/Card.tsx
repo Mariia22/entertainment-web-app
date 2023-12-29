@@ -28,7 +28,7 @@ export const Card: React.FC<CardProps> = ({
                 className="absolute top-2 right-2 w-8 h-8 flex justify-center items-center rounded-full bg-primary opacity-50 cursor-pointer"
                 onClick={() => handleClick(title)}
             >
-                {isBookmarked ? <NonBookmarkedIcon /> : <BookmarkedIcon />}
+                {isBookmarked ? <BookmarkedIcon /> : <NonBookmarkedIcon />}
             </div>
         </div>
     )
