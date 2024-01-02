@@ -4,7 +4,7 @@ import BookmarkedIcon from "../../../app/assets/icons/icon-bookmark-full.svg"
 import PointIcon from "../../../app/assets/icons/icon-point.svg"
 import MovieIcon from "../../../app/assets/icons/icon-category-movie.svg"
 import SeriesIcon from "../../../app/assets/icons/icon-category-tv.svg"
-import { category } from "../../../../types/data"
+import { category } from "../../../entities/entertainment/api/types"
 
 interface CardProps {
     width: string

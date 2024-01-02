@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { dataType } from "../../../types/data"
+import { EntertainmentCardDto } from "../../entities/entertainment/api/types"
 import { Card } from "../../shared/ui/Card/Card"
 import { errorMessage } from "../../shared/api/apiError"
 
 interface TrendingSectionProps {
-    movies: dataType[]
+    movies: EntertainmentCardDto[]
     handleClick: (key: string) => void
 }
 
@@ -12,7 +12,7 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({
     movies,
     handleClick,
 }) => {
-    const [trendMovies, setTrendMovies] = useState<dataType[]>([])
+    const [trendMovies, setTrendMovies] = useState<EntertainmentCardDto[]>([])
 
     useEffect(() => {
         const trend = movies.filter((movie) => movie.isTrending)

@@ -1,9 +1,9 @@
 import React from "react"
-import { dataType } from "../../../types/data"
+import { EntertainmentCardDto } from "../../entities/entertainment/api/types"
 import { Card } from "../../shared/ui/Card/Card"
 
 interface CardsLayoutProps {
-    movies: dataType[]
+    movies: EntertainmentCardDto[]
     handleClick: (key: string) => void
 }
 

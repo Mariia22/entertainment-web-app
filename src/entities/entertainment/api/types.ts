@@ -1,4 +1,4 @@
-export type dataType = {
+export type EntertainmentCardDto = {
     title: string
     thumbnail: thumbnail
     year: number
