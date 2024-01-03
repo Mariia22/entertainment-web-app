@@ -1,37 +1,20 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
-import { errorMessage } from "../../../shared/api/apiError"
 import { Search } from "../../../shared/ui/Search/Search"
 import { searchPlaceholder } from "../../../shared/ui/Search/searchPlaceholder"
 import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 import { useAppDispatch, useAppSelector } from "../../../shared/model/hooks"
 import {
-    fetchContent,
-    selectError,
-    selectLoading,
+    changeCardBookmark,
     selectMovies,
 } from "../../../entities/entertainment/model/slice"
-import { Loading } from "../../../shared/ui/Loading/Loading"
 
 export const MoviePage: React.FC = () => {
     const movies = useAppSelector(selectMovies)
-    const loading = useAppSelector(selectLoading)
-    const error = useAppSelector(selectError)
-
     const dispatch = useAppDispatch()
 
-    useEffect(() => {
-        dispatch(fetchContent())
-    }, [])
-
-    function handleClick(): void {}
-
-    if (loading) {
-        return <Loading />
-    }
-
-    if (error) {
-        return <div>{errorMessage.download}</div>
+    function handleClick(key: string): void {
+        dispatch(changeCardBookmark(key))
     }
 
     return (
