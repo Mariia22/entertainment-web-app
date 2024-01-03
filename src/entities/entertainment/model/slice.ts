@@ -33,12 +33,9 @@ export const entertainmentSlice = createSlice({
     initialState,
     reducers: {
         changeCardBookmark: (state, action: PayloadAction<string>) => {
-            state.cards.map((card) => {
+            state.cards = state.cards.map((card) => {
                 if (action.payload !== card.title) return card
-                return {
-                    ...card,
-                    isBookmarked: !card.isBookmarked,
-                }
+                return { ...card, isBookmarked: !card.isBookmarked }
             })
         },
     },
