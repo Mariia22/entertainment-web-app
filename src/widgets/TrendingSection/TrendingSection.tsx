@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react"
-import { EntertainmentCardDto } from "../../entities/entertainment/api/types"
+import React from "react"
 import { Card } from "../../shared/ui/Card/Card"
 import { errorMessage } from "../../shared/api/apiError"
+import { useAppSelector } from "../../shared/model/hooks"
+import { selectTrends } from "../../entities/entertainment/model/slice"
 
-interface TrendingSectionProps {
-    movies: EntertainmentCardDto[]
-    handleClick: (key: string) => void
-}
-
-export const TrendingSection: React.FC<TrendingSectionProps> = ({
-    movies,
-    handleClick,
-}) => {
-    const [trendMovies, setTrendMovies] = useState<EntertainmentCardDto[]>([])
-
-    useEffect(() => {
-        const trend = movies.filter((movie) => movie.isTrending)
-        setTrendMovies(trend)
-    }, [movies])
+export const TrendingSection: React.FC = () => {
+    const trendMovies = useAppSelector(selectTrends)
 
     if (trendMovies.length === 0) {
         return <div className="flex pt-4">{errorMessage.emptyTrending}</div>
@@ -37,7 +25,6 @@ export const TrendingSection: React.FC<TrendingSectionProps> = ({
                     genre={movie.category}
                     rating={movie.rating}
                     isTrendingSection={true}
-                    handleClick={handleClick}
                 />
             ))}
         </div>

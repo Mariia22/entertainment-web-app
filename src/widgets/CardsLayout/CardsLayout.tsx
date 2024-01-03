@@ -4,13 +4,9 @@ import { Card } from "../../shared/ui/Card/Card"
 
 interface CardsLayoutProps {
     movies: EntertainmentCardDto[]
-    handleClick: (key: string) => void
 }
 
-export const CardsLayout: React.FC<CardsLayoutProps> = ({
-    movies,
-    handleClick,
-}) => {
+export const CardsLayout: React.FC<CardsLayoutProps> = ({ movies }) => {
     return (
         <div className="grid grid-cols-2 gap-y-4 pt-4">
             {movies.map((item) => (
@@ -25,7 +21,6 @@ export const CardsLayout: React.FC<CardsLayoutProps> = ({
                     genre={item.category}
                     rating={item.rating}
                     isTrendingSection={false}
-                    handleClick={handleClick}
                 />
             ))}
         </div>

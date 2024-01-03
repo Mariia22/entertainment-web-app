@@ -97,6 +97,12 @@ export const selectBookmarksSeries = createSelector(
         )
 )
 
+export const selectTrends = createSelector(
+    (state: RootState) => state.entertainment.cards,
+    (cards): EntertainmentCard[] =>
+        cards.filter((card: EntertainmentCard) => card.isTrending)
+)
+
 export const { changeCardBookmark } = entertainmentSlice.actions
 export const { selectAllCards, selectLoading, selectError } =
     entertainmentSlice.selectors

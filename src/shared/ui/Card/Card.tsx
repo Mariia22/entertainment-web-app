@@ -5,13 +5,14 @@ import PointIcon from "../../../app/assets/icons/icon-point.svg"
 import MovieIcon from "../../../app/assets/icons/icon-category-movie.svg"
 import SeriesIcon from "../../../app/assets/icons/icon-category-tv.svg"
 import { category } from "../../../entities/entertainment/api/types"
+import { useAppDispatch } from "../../model/hooks"
+import { changeCardBookmark } from "../../../entities/entertainment/model/slice"
 
 interface CardProps {
     width: string
     height: string
     url: string
     isBookmarked: boolean
-    handleClick: (key: string) => void
     title: string
     year: number
     genre: category
@@ -24,13 +25,18 @@ export const Card: React.FC<CardProps> = ({
     height,
     url,
     isBookmarked,
-    handleClick,
     title,
     year,
     genre,
     rating,
     isTrendingSection,
 }) => {
+    const dispatch = useAppDispatch()
+
+    function handleClick(key: string): void {
+        dispatch(changeCardBookmark(key))
+    }
+
     return (
         <div className="relative flex flex-col">
             <div
