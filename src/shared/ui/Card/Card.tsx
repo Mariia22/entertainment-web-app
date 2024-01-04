@@ -10,7 +10,11 @@ import { changeCardBookmark } from "../../../entities/entertainment/model/slice"
 
 interface CardProps {
     width: string
+    widthTablet: string
+    widthDesktop: string
     height: string
+    heightTablet: string
+    heightDesktop: string
     url: string
     isBookmarked: boolean
     title: string
@@ -22,7 +26,11 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({
     width,
+    widthTablet,
+    widthDesktop,
     height,
+    heightTablet,
+    heightDesktop,
     url,
     isBookmarked,
     title,
@@ -41,7 +49,7 @@ export const Card: React.FC<CardProps> = ({
         <div className="relative flex flex-col">
             <div
                 style={{ backgroundImage: `url(${url})` }}
-                className={`relative block ${width} ${height} bg-cover bg-no-repeat bg-center rounded-lg`}
+                className={`relative block ${width} ${height} bg-cover bg-no-repeat bg-center rounded-lg md:${widthTablet} md:${heightTablet} xl:${widthDesktop} xl:${heightDesktop}`}
             >
                 <div
                     className="absolute top-2 right-2 w-8 h-8 flex justify-center items-center rounded-full bg-primary opacity-50 cursor-pointer"
@@ -51,7 +59,7 @@ export const Card: React.FC<CardProps> = ({
                 </div>
             </div>
             <div
-                className={`grid grid-rows-2 gap-1 mt-2 ${
+                className={`grid grid-rows-2 gap-1 mt-2 ${width} ${
                     isTrendingSection && "absolute left-4 bottom-4"
                 }`}
             >

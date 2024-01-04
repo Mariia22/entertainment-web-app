@@ -13,14 +13,14 @@ export const MainPage: React.FC = () => {
     return (
         <>
             <Search placeholder={searchPlaceholder.main} />
-            <section className="flex flex-col mt-6">
-                <HeaderSection>Trending</HeaderSection>
-                <TrendingSection />
-            </section>
-            <section className="flex flex-col mt-6">
-                <HeaderSection>Recommended for you</HeaderSection>
-                <CardsLayout movies={entertainments} />
-            </section>
+            <div className="relative h-[200px]">
+                <section className="absolute z-10 h-[200px]">
+                    <HeaderSection>Trending</HeaderSection>
+                    <TrendingSection />
+                </section>
+            </div>
+            <HeaderSection>Recommended for you</HeaderSection>
+            <CardsLayout movies={entertainments} />
         </>
     )
 }

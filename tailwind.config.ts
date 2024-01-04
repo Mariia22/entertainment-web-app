@@ -14,13 +14,21 @@ export default {
             outfit: ["Outfit", "sans-serif"],
         },
         extend: {
+            screens: {
+                xl: "1440px",
+            },
             width: {
-                "240": "240px",
                 "164": "164px",
+                "220": "220px",
+                "240": "240px",
+                "280": "280px",
+                "470": "470px",
             },
             height: {
                 "110": "110px",
                 "140": "140px",
+                "174": "174px",
+                "230": "230px",
             },
         },
     },

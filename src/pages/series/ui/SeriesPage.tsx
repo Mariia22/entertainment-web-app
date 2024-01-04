@@ -12,10 +12,10 @@ export const SeriesPage: React.FC = () => {
     return (
         <>
             <Search placeholder={searchPlaceholder.series} />
-            <section className="flex flex-col mt-6">
+            <>
                 <HeaderSection>TV Series</HeaderSection>
                 <CardsLayout movies={movies} />
-            </section>
+            </>
         </>
     )
 }

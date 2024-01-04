@@ -13,10 +13,10 @@ export const MoviePage: React.FC = () => {
         <>
             <Search placeholder={searchPlaceholder.movies} />
             {movies.length > 0 && (
-                <section className="flex flex-col mt-6">
+                <>
                     <HeaderSection>Movies</HeaderSection>
                     <CardsLayout movies={movies} />
-                </section>
+                </>
             )}
         </>
     )

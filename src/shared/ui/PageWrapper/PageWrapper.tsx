@@ -28,5 +28,5 @@ export const PageWrapper: React.FC<WrapperProps> = ({ children }) => {
         return <div>{errorMessage.download}</div>
     }
 
-    return <div className="ml-4">{children}</div>
+    return <div className="flex flex-col pb-16">{children}</div>
 }

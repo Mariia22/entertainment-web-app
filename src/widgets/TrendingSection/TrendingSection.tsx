@@ -12,13 +12,17 @@ export const TrendingSection: React.FC = () => {
     }
 
     return (
-        <div className="flex w-screen pt-4 gap-4">
+        <div className="flex w-screen pt-4 pl-4 gap-4 overflow-x-scroll">
             {trendMovies.map((movie) => (
                 <Card
                     key={movie.title}
                     title={movie.title}
                     width="w-240"
+                    widthTablet="w-470"
+                    widthDesktop="w-470"
                     height="h-140"
+                    heightTablet="h-230"
+                    heightDesktop="h-230"
                     url={movie.thumbnail.trending.small}
                     isBookmarked={movie.isBookmarked}
                     year={movie.year}

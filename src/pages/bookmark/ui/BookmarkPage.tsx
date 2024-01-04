@@ -16,11 +16,11 @@ export const BookmarkPage: React.FC = () => {
     return (
         <>
             <Search placeholder={searchPlaceholder.bookmark} />
-            <section className="flex flex-col mt-6">
+            <section>
                 <HeaderSection>Bookmarked Movies</HeaderSection>
                 <CardsLayout movies={moviesBookmarks} />
             </section>
-            <section className="flex flex-col mt-6">
+            <section>
                 <HeaderSection>Bookmarked TV Series</HeaderSection>
                 <CardsLayout movies={seriesBookmarks} />
             </section>
