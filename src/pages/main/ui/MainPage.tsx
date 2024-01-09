@@ -13,8 +13,8 @@ export const MainPage: React.FC = () => {
     return (
         <>
             <Search placeholder={searchPlaceholder.main} />
-            <div className="relative h-[200px]">
-                <section className="absolute z-10 h-[200px]">
+            <div className="relative h-200 md:h-295">
+                <section className="absolute z-10">
                     <HeaderSection>Trending</HeaderSection>
                     <TrendingSection />
                 </section>
