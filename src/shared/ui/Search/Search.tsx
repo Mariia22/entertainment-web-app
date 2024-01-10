@@ -13,7 +13,7 @@ export const Search: React.FC<SearchProps> = ({ placeholder }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-3 pl-4 pr-4">
+        <form onSubmit={handleSubmit} className="mt-3 pl-4 pr-4 xl:mt-10">
             <label className="flex justify-start items-center">
                 <svg
                     className="h-6 w-6 fill-text mr-4"

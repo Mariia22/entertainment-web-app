@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 
 export const Navigation: React.FC = () => {
     return (
-        <nav className="flex justify-evenly">
+        <nav className="flex justify-evenly xl:flex xl:flex-col xl:h-[100%] xl:justify-between">
             {navigationList.map((link) => (
                 <NavLink
                     key={link.id}

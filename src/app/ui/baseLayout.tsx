@@ -7,7 +7,7 @@ import { UserAvatar } from "../../shared/ui/UserAvatar/UserAvatar"
 import { PageWrapper } from "../../shared/ui/PageWrapper/PageWrapper"
 
 export const BaseLayout = (
-    <div className="font-light font-outfit min-w-[375px] overflow-hidden">
+    <div className="flex flex-col font-light font-outfit min-w-[375px] overflow-hidden xl:flex-row ">
         <LayoutHeader>
             <Logo />
             <Navigation />
