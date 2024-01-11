@@ -1,19 +1,40 @@
-import React, { FormEvent, useState } from "react"
+import React, { useState } from "react"
+import { useAppSelector, useDebounce } from "../../model/hooks"
+import { selectAllCards } from "../../../entities/entertainment/model/slice"
+import {
+    changeSearchMode,
+    changeSearchQuery,
+    changeSearchResults,
+} from "../../../entities/search/model/slice"
 
 interface SearchProps {
     placeholder: string
 }
 
 export const Search: React.FC<SearchProps> = ({ placeholder }) => {
+    const entertainments = useAppSelector(selectAllCards)
     const [searchText, setSearchText] = useState("")
 
-    const handleSubmit = (event: FormEvent) => {
-        event.preventDefault()
-        setSearchText("")
+    function searchMode() {
+        searchText.length > 0 ? changeSearchMode(true) : changeSearchMode(false)
+        changeSearchResults(
+            entertainments.filter((item) =>
+                item.title.toLowerCase().includes(searchText.toLowerCase())
+            )
+        )
+        changeSearchQuery(searchText)
     }
 
+    useDebounce(
+        () => {
+            searchMode()
+        },
+        [entertainments, searchText],
+        800
+    )
+
     return (
-        <form onSubmit={handleSubmit} className="mt-3 pl-4 pr-4 xl:mt-10">
+        <form className="mt-3 pl-4 pr-4 xl:mt-10">
             <label className="flex justify-start items-center">
                 <svg
                     className="h-6 w-6 fill-text mr-4"

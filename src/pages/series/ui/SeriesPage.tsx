@@ -1,6 +1,6 @@
 import React from "react"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
-import { Search } from "../../../shared/ui/Search/Search"
+import { Search } from "../../../shared/ui/Search/SearchInput"
 import { searchPlaceholder } from "../../../shared/ui/Search/searchPlaceholder"
 import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 import { useAppSelector } from "../../../shared/model/hooks"
