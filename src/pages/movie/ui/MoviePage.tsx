@@ -5,19 +5,28 @@ import { searchPlaceholder } from "../../../shared/ui/Search/searchPlaceholder"
 import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 import { useAppSelector } from "../../../shared/model/hooks"
 import { selectMovies } from "../../../entities/entertainment/model/slice"
+import { selectSearchMode } from "../../../entities/search/model/slice"
+import { SearchOutput } from "../../../shared/ui/Search/SearchOutput"
 
 export const MoviePage: React.FC = () => {
     const movies = useAppSelector(selectMovies)
+    const isSearchingMode = useAppSelector(selectSearchMode)
 
     return (
-        <>
-            <Search placeholder={searchPlaceholder.movies} />
-            {movies.length > 0 && (
+        <main className="xl:ml-5">
+            <Search placeholder={searchPlaceholder.movies} movies={movies} />
+            {isSearchingMode ? (
+                <SearchOutput />
+            ) : (
                 <>
-                    <HeaderSection>Movies</HeaderSection>
-                    <CardsLayout movies={movies} />
+                    {movies.length > 0 && (
+                        <>
+                            <HeaderSection>Movies</HeaderSection>
+                            <CardsLayout movies={movies} />
+                        </>
+                    )}
                 </>
             )}
-        </>
+        </main>
     )
 }

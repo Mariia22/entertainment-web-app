@@ -14,9 +14,9 @@ export const SearchOutput: React.FC = () => {
     const searchResults = useAppSelector(selectSearchResults)
 
     return (
-        <>
+        <section>
             <HeaderSection>{`Found ${count} results for ${query}`}</HeaderSection>
             <CardsLayout movies={searchResults} />
-        </>
+        </section>
     )
 }

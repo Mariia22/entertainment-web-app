@@ -12,10 +12,13 @@ import { SearchOutput } from "../../../shared/ui/Search/SearchOutput"
 export const MainPage: React.FC = () => {
     const entertainments = useAppSelector(selectAllCards)
     const isSearchingMode = useAppSelector(selectSearchMode)
-    console.log(isSearchingMode)
+
     return (
-        <>
-            <Search placeholder={searchPlaceholder.main} />
+        <main className="xl:ml-5">
+            <Search
+                placeholder={searchPlaceholder.main}
+                movies={entertainments}
+            />
             {isSearchingMode ? (
                 <SearchOutput />
             ) : (
@@ -30,6 +33,6 @@ export const MainPage: React.FC = () => {
                     <CardsLayout movies={entertainments} />
                 </>
             )}
-        </>
+        </main>
     )
 }

@@ -1,35 +1,38 @@
 import React, { useState } from "react"
-import { useAppSelector, useDebounce } from "../../model/hooks"
-import { selectAllCards } from "../../../entities/entertainment/model/slice"
+import { useAppDispatch, useDebounce } from "../../model/hooks"
 import {
     changeSearchMode,
     changeSearchQuery,
     changeSearchResults,
 } from "../../../entities/search/model/slice"
+import { EntertainmentCard } from "../../../entities/entertainment/model/types"
 
 interface SearchProps {
     placeholder: string
+    movies: EntertainmentCard[]
 }
 
-export const Search: React.FC<SearchProps> = ({ placeholder }) => {
-    const entertainments = useAppSelector(selectAllCards)
+export const Search: React.FC<SearchProps> = ({ placeholder, movies }) => {
     const [searchText, setSearchText] = useState("")
-
-    function searchMode() {
-        searchText.length > 0 ? changeSearchMode(true) : changeSearchMode(false)
-        changeSearchResults(
-            entertainments.filter((item) =>
-                item.title.toLowerCase().includes(searchText.toLowerCase())
-            )
-        )
-        changeSearchQuery(searchText)
-    }
+    const dispatch = useAppDispatch()
 
     useDebounce(
         () => {
-            searchMode()
+            searchText.length > 0
+                ? dispatch(changeSearchMode(true))
+                : dispatch(changeSearchMode(false))
+            dispatch(
+                changeSearchResults(
+                    movies.filter((item) =>
+                        item.title
+                            .toLowerCase()
+                            .includes(searchText.toLowerCase())
+                    )
+                )
+            )
+            dispatch(changeSearchQuery(searchText))
         },
-        [entertainments, searchText],
+        [movies, searchText],
         800
     )
 

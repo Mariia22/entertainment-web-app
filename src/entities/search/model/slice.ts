@@ -24,8 +24,6 @@ export const searchSlice = createSlice({
             action: PayloadAction<EntertainmentCard[]>
         ) => {
             state.searchResults = [...action.payload]
-        },
-        changeCountSearchResults: (state) => {
             state.countSearchResults = state.searchResults.length
         },
     },
@@ -44,9 +42,5 @@ export const {
     selectSearchResults,
 } = searchSlice.selectors
 
-export const {
-    changeSearchMode,
-    changeSearchQuery,
-    changeSearchResults,
-    changeCountSearchResults,
-} = searchSlice.actions
+export const { changeSearchMode, changeSearchQuery, changeSearchResults } =
+    searchSlice.actions
