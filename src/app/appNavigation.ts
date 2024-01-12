@@ -7,7 +7,7 @@ export const navigationList = [
     {
         id: 1,
         icon: MainIcon,
-        path: "/",
+        path: "/main",
     },
     {
         id: 2,

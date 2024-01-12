@@ -5,6 +5,8 @@ import { MainPage } from "../pages/main"
 import { MoviePage } from "../pages/movie"
 import { SeriesPage } from "../pages/series"
 import { BookmarkPage } from "../pages/bookmark"
+import { LoginPage } from "../pages/login"
+import { BaseLayoutUnauthorized } from "./ui/baseLayoutUnauthorized"
 
 export const appRouter = () =>
     createHashRouter([
@@ -14,7 +16,7 @@ export const appRouter = () =>
 
             children: [
                 {
-                    path: "/",
+                    path: "/main",
                     element: <MainPage />,
                 },
                 {
@@ -28,6 +30,16 @@ export const appRouter = () =>
                 {
                     path: "bookmark",
                     element: <BookmarkPage />,
+                },
+            ],
+        },
+        {
+            element: BaseLayoutUnauthorized,
+            errorElement: <div>error</div>,
+            children: [
+                {
+                    path: "/",
+                    element: <LoginPage />,
                 },
             ],
         },

@@ -4,7 +4,7 @@ import LogoIcon from "../../../../app/assets/icons/logo.svg"
 
 export const Logo: React.FC = () => {
     return (
-        <Link to={"/"} className="justify-self-start">
+        <Link to={"/main"} className="justify-self-start">
             <LogoIcon />
         </Link>
     )
