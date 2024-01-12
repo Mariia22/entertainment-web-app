@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { useAppDispatch, useDebounce } from "../../model/hooks"
+import { useAppDispatch, useDebounce } from "../../shared/model/hooks"
 import {
     changeSearchMode,
     changeSearchQuery,
     changeSearchResults,
-} from "../../../entities/search/model/slice"
-import { EntertainmentCard } from "../../../entities/entertainment/model/types"
+} from "../../entities/search/model/slice"
+import { EntertainmentCard } from "../../entities/entertainment/model/types"
 
 interface SearchProps {
     placeholder: string

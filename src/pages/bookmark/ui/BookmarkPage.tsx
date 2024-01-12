@@ -1,7 +1,7 @@
 import React from "react"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
-import { Search } from "../../../shared/ui/Search/SearchInput"
-import { searchPlaceholder } from "../../../shared/ui/Search/searchPlaceholder"
+import { Search } from "../../../widgets/Search/SearchInput"
+import { searchPlaceholder } from "../../../widgets/Search/searchPlaceholder"
 import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 import { useAppSelector } from "../../../shared/model/hooks"
 import {
@@ -9,7 +9,7 @@ import {
     selectBookmarksSeries,
 } from "../../../entities/entertainment/model/slice"
 import { selectSearchMode } from "../../../entities/search/model/slice"
-import { SearchOutput } from "../../../shared/ui/Search/SearchOutput"
+import { SearchOutput } from "../../../widgets/Search/SearchOutput"
 
 export const BookmarkPage: React.FC = () => {
     const moviesBookmarks = useAppSelector(selectBookmarksMovies)

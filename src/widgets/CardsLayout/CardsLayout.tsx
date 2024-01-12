@@ -1,6 +1,7 @@
 import React from "react"
 import { EntertainmentCardDto } from "../../entities/entertainment/api/types"
-import { Card } from "../../shared/ui/Card/Card"
+import { Card } from "../Card/Card"
+import { CardDescription } from "../CardDescription/CardDescription"
 
 interface CardsLayoutProps {
     movies: EntertainmentCardDto[]
@@ -15,11 +16,16 @@ export const CardsLayout: React.FC<CardsLayoutProps> = ({ movies }) => {
                     title={item.title}
                     url={item.thumbnail.regular.small}
                     isBookmarked={item.isBookmarked}
-                    year={item.year}
-                    genre={item.category}
-                    rating={item.rating}
                     isTrendingSection={false}
-                />
+                >
+                    <CardDescription
+                        title={item.title}
+                        year={item.year}
+                        genre={item.category}
+                        rating={item.rating}
+                        isTrending={false}
+                    />
+                </Card>
             ))}
         </div>
     )

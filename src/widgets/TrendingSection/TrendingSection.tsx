@@ -1,5 +1,5 @@
 import React from "react"
-import { Card } from "../../shared/ui/Card/Card"
+import { Card } from "../Card/Card"
 import { errorMessage } from "../../shared/api/apiError"
 import { useAppSelector } from "../../shared/model/hooks"
 import { selectTrends } from "../../entities/entertainment/model/slice"
