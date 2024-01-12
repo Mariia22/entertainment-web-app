@@ -1,8 +1,5 @@
 import React from "react"
-import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
 import { Search } from "../../../widgets/Search/SearchInput"
-import { searchPlaceholder } from "../../../widgets/Search/searchPlaceholder"
-import { CardsLayout } from "../../../widgets/CardsLayout/CardsLayout"
 import { useAppSelector } from "../../../shared/model/hooks"
 import {
     selectBookmarksMovies,
@@ -10,6 +7,8 @@ import {
 } from "../../../entities/entertainment/model/slice"
 import { selectSearchMode } from "../../../entities/search/model/slice"
 import { SearchOutput } from "../../../widgets/Search/SearchOutput"
+import { textsAndPlaceholders } from "../../../shared/model/appTextsAndPlaceHolders"
+import { EntertainmentSection } from "../../../shared/ui/EntertainmentSection/EntertainmentSection"
 
 export const BookmarkPage: React.FC = () => {
     const moviesBookmarks = useAppSelector(selectBookmarksMovies)
@@ -19,19 +18,27 @@ export const BookmarkPage: React.FC = () => {
 
     return (
         <main className="xl:ml-5">
-            <Search placeholder={searchPlaceholder.bookmark} movies={movies} />
+            <Search
+                placeholder={textsAndPlaceholders.search.bookmark}
+                movies={movies}
+            />
             {isSearchingMode ? (
                 <SearchOutput />
             ) : (
                 <>
-                    <section>
-                        <HeaderSection>Bookmarked Movies</HeaderSection>
-                        <CardsLayout movies={moviesBookmarks} />
-                    </section>
-                    <section>
-                        <HeaderSection>Bookmarked TV Series</HeaderSection>
-                        <CardsLayout movies={seriesBookmarks} />
-                    </section>
+                    <EntertainmentSection
+                        header={
+                            textsAndPlaceholders.sectionHeaders.bookmarkedMovies
+                        }
+                        entertainments={moviesBookmarks}
+                    />
+                    <EntertainmentSection
+                        header={
+                            textsAndPlaceholders.sectionHeaders
+                                .bookmarkedTVSeries
+                        }
+                        entertainments={seriesBookmarks}
+                    />
                 </>
             )}
         </main>

@@ -1,8 +1,8 @@
 import React, { ReactNode, useState } from "react"
 import { useAppDispatch } from "../../shared/model/hooks"
 import { changeCardBookmark } from "../../entities/entertainment/model/slice"
-import { PlayVideoButton } from "../../features/card-playVideo/ui/playVideoButton"
 import { Bookmark } from "../Bookmark/Bookmark"
+import { PlayVideoButton } from "../../features/card-playVideo/ui/PlayButton"
 
 interface CardProps {
     url: string
