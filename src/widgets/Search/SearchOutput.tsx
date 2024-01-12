@@ -16,7 +16,7 @@ export const SearchOutput: React.FC = () => {
     return (
         <section>
             <HeaderSection>{`Found ${count} results for ${query}`}</HeaderSection>
-            <CardsLayout movies={searchResults} />
+            <CardsLayout cards={searchResults} />
         </section>
     )
 }
