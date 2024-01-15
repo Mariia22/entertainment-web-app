@@ -17,7 +17,7 @@ type AuthGuardProps = {
 function GuestGuard({ children }: AuthGuardProps) {
     const isAuthorized = useAppSelector(selectIsAuthorized)
 
-    if (!isAuthorized) return <Navigate to="/" />
+    if (!isAuthorized) return <Navigate to="/login" />
 
     return children
 }
@@ -25,7 +25,7 @@ function GuestGuard({ children }: AuthGuardProps) {
 function AuthGuard({ children }: AuthGuardProps) {
     const isAuthorized = useAppSelector(selectIsAuthorized)
 
-    if (isAuthorized) return <Navigate to="/main" />
+    if (isAuthorized) return <Navigate to="/" />
 
     return children
 }
@@ -33,12 +33,26 @@ function AuthGuard({ children }: AuthGuardProps) {
 export const appRouter = () =>
     createHashRouter([
         {
+            element: BaseLayoutUnauthorized,
+            errorElement: <div>error</div>,
+            children: [
+                {
+                    path: "/login",
+                    element: (
+                        <AuthGuard>
+                            <LoginPage />
+                        </AuthGuard>
+                    ),
+                },
+            ],
+        },
+        {
             element: BaseLayout,
             errorElement: <div>error</div>,
 
             children: [
                 {
-                    path: "/main",
+                    path: "/",
                     element: (
                         <GuestGuard>
                             <MainPage />
@@ -46,7 +60,7 @@ export const appRouter = () =>
                     ),
                 },
                 {
-                    path: "movies",
+                    path: "/movies",
                     element: (
                         <GuestGuard>
                             <MoviePage />
@@ -54,7 +68,7 @@ export const appRouter = () =>
                     ),
                 },
                 {
-                    path: "tv-series",
+                    path: "/tv-series",
                     element: (
                         <GuestGuard>
                             <SeriesPage />
@@ -62,25 +76,11 @@ export const appRouter = () =>
                     ),
                 },
                 {
-                    path: "bookmark",
+                    path: "/bookmark",
                     element: (
                         <GuestGuard>
                             <BookmarkPage />
                         </GuestGuard>
-                    ),
-                },
-            ],
-        },
-        {
-            element: BaseLayoutUnauthorized,
-            errorElement: <div>error</div>,
-            children: [
-                {
-                    path: "/",
-                    element: (
-                        <AuthGuard>
-                            <LoginPage />
-                        </AuthGuard>
                     ),
                 },
             ],
