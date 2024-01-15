@@ -24,7 +24,7 @@ export const MainPage: React.FC = () => {
             ) : (
                 <>
                     <div className="relative h-200 md:h-295">
-                        <section className="absolute z-10">
+                        <section className="absolute z-10 pl-8">
                             <HeaderSection>
                                 {textsAndPlaceholders.sectionHeaders.trends}
                             </HeaderSection>

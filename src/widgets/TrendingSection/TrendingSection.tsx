@@ -3,6 +3,7 @@ import { Card } from "../Card/Card"
 import { errorMessage } from "../../shared/api/apiError"
 import { useAppSelector } from "../../shared/model/hooks"
 import { selectTrends } from "../../entities/entertainment/model/slice"
+import { CardDescription } from "../CardDescription/CardDescription"
 
 export const TrendingSection: React.FC = () => {
     const trendMovies = useAppSelector(selectTrends)
@@ -12,18 +13,23 @@ export const TrendingSection: React.FC = () => {
     }
 
     return (
-        <div className="flex w-screen pt-4 ml-4 gap-4 overflow-x-scroll md:gap-x-10">
+        <div className="flex w-screen pt-4 gap-4 overflow-x-scroll md:gap-x-10">
             {trendMovies.map((movie) => (
                 <Card
                     key={movie.title}
                     title={movie.title}
                     url={movie.thumbnail.trending.small}
                     isBookmarked={movie.isBookmarked}
-                    year={movie.year}
-                    genre={movie.category}
-                    rating={movie.rating}
                     isTrendingSection={true}
-                />
+                >
+                    <CardDescription
+                        title={movie.title}
+                        year={movie.year}
+                        genre={movie.category}
+                        rating={movie.rating}
+                        isTrending={true}
+                    />
+                </Card>
             ))}
         </div>
     )

@@ -13,6 +13,16 @@ export default {
         fontFamily: {
             outfit: ["Outfit", "sans-serif"],
         },
+        fontSize: {
+            xl: [
+                "32px",
+                {
+                    lineHeight: "normal",
+                    letterSpacing: "-0.5px",
+                    fontWeight: "300",
+                },
+            ],
+        },
         extend: {
             screens: {
                 xl: "1440px",

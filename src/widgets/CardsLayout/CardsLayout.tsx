@@ -9,7 +9,7 @@ interface CardsLayoutProps {
 
 export const CardsLayout: React.FC<CardsLayoutProps> = ({ cards }) => {
     return (
-        <div className="grid grid-cols-2 gap-y-4 gap-x-4 pl-4 mt-6 pr-4 md:grid-cols-3 md:gap-x-[29px] md:gap-y-6 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-8">
+        <div className="grid grid-cols-2 gap-y-4 gap-x-4 mt-6 pr-4 md:grid-cols-3 md:gap-x-[29px] md:gap-y-6 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-8">
             {cards.map((item) => (
                 <Card
                     key={item.title}
