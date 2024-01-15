@@ -1,5 +1,5 @@
-import React from "react"
-import { createHashRouter } from "react-router-dom"
+import React, { ReactElement } from "react"
+import { Navigate, createHashRouter } from "react-router-dom"
 import { BaseLayout } from "./ui/baseLayout"
 import { MainPage } from "../pages/main"
 import { MoviePage } from "../pages/movie"
@@ -7,6 +7,28 @@ import { SeriesPage } from "../pages/series"
 import { BookmarkPage } from "../pages/bookmark"
 import { LoginPage } from "../pages/login"
 import { BaseLayoutUnauthorized } from "./ui/baseLayoutUnauthorized"
+import { useAppSelector } from "../shared/model/hooks"
+import { selectIsAuthorized } from "../entities/session/model/slice"
+
+type AuthGuardProps = {
+    children: ReactElement
+}
+
+function GuestGuard({ children }: AuthGuardProps) {
+    const isAuthorized = useAppSelector(selectIsAuthorized)
+
+    if (!isAuthorized) return <Navigate to="/" />
+
+    return children
+}
+
+function AuthGuard({ children }: AuthGuardProps) {
+    const isAuthorized = useAppSelector(selectIsAuthorized)
+
+    if (isAuthorized) return <Navigate to="/main" />
+
+    return children
+}
 
 export const appRouter = () =>
     createHashRouter([
@@ -17,19 +39,35 @@ export const appRouter = () =>
             children: [
                 {
                     path: "/main",
-                    element: <MainPage />,
+                    element: (
+                        <GuestGuard>
+                            <MainPage />
+                        </GuestGuard>
+                    ),
                 },
                 {
                     path: "movies",
-                    element: <MoviePage />,
+                    element: (
+                        <GuestGuard>
+                            <MoviePage />
+                        </GuestGuard>
+                    ),
                 },
                 {
                     path: "tv-series",
-                    element: <SeriesPage />,
+                    element: (
+                        <GuestGuard>
+                            <SeriesPage />
+                        </GuestGuard>
+                    ),
                 },
                 {
                     path: "bookmark",
-                    element: <BookmarkPage />,
+                    element: (
+                        <GuestGuard>
+                            <BookmarkPage />
+                        </GuestGuard>
+                    ),
                 },
             ],
         },
@@ -39,7 +77,11 @@ export const appRouter = () =>
             children: [
                 {
                     path: "/",
-                    element: <LoginPage />,
+                    element: (
+                        <AuthGuard>
+                            <LoginPage />
+                        </AuthGuard>
+                    ),
                 },
             ],
         },

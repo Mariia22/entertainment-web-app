@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { loginUrl } from "../../../shared/api/baseApi"
 
 const initialState = {
+    isAuth: false,
     loading: false,
     error: null,
-    cards: [],
 }
 
 export const login = createAsyncThunk("login/login", async () => {
@@ -32,4 +32,9 @@ export const userSlice = createSlice({
             state.loading = false
         })
     },
+    selectors: {
+        selectIsAuthorized: (sliceState) => sliceState.isAuth,
+    },
 })
+
+export const { selectIsAuthorized } = userSlice.selectors
