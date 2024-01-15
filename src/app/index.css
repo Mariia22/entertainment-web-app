@@ -11,4 +11,13 @@
         @apply flex flex-col justify-between items-center min-w-[375px] max-w-[1440px] leading-none bg-primary text-text;
         font-family: "sans", sans-serif;
     }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        border-bottom: 1px solid #ffffff;
+        -webkit-text-fill-color: #ffffff;
+        transition: background-color 5000s ease-in-out 0s;
+        color: #ffffff;
+    }
 }

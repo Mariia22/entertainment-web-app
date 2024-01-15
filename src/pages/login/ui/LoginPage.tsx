@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { LoginForm } from "../../../features/login/ui/LoginForm"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
-import { LoginFormLink } from "../../../features/login/ui/LoginFormLink"
+import { RegistrationForm } from "../../../features/registration/ui/RegistrationForm"
+import { AuthFormLink } from "../../../shared/ui/Link/AuthFormLink"
 
 export const LoginPage: React.FC = () => {
     const [isLogin, setLogin] = useState(true)
@@ -16,7 +17,7 @@ export const LoginPage: React.FC = () => {
                 <>
                     <HeaderSection>Login</HeaderSection>
                     <LoginForm />
-                    <LoginFormLink
+                    <AuthFormLink
                         text={"Don't have an account?"}
                         link={"Sign Up"}
                         handleClick={handleClick}
@@ -25,8 +26,8 @@ export const LoginPage: React.FC = () => {
             ) : (
                 <>
                     <HeaderSection>Sign Up</HeaderSection>
-                    <LoginForm />
-                    <LoginFormLink
+                    <RegistrationForm />
+                    <AuthFormLink
                         text={"Already have an account?"}
                         link={"Login"}
                         handleClick={handleClick}

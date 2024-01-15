@@ -6,7 +6,7 @@ interface LinkProps {
     handleClick: () => void
 }
 
-export const LoginFormLink: React.FC<LinkProps> = ({
+export const AuthFormLink: React.FC<LinkProps> = ({
     text,
     link,
     handleClick,

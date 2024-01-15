@@ -1,20 +1,21 @@
 import { Formik } from "formik"
 import React from "react"
-import { loginSchema } from "../model/loginFormSchema"
 import { Button } from "../../../shared/ui/Button/Button"
+import { registrationSchema } from "../model/registrationFormSchema"
 import { TextInput } from "../../../shared/ui/TextInput/TextInput"
 
-interface LoginFormProps {
+interface RegistrationFormProps {
     email: string
     password: string
+    repeatPassword: string
 }
 
-export const LoginForm: React.FC = () => {
+export const RegistrationForm: React.FC = () => {
     return (
         <Formik
-            initialValues={{ email: "", password: "" }}
-            validationSchema={loginSchema}
-            onSubmit={(values: LoginFormProps) => {
+            initialValues={{ email: "", password: "", repeatPassword: "" }}
+            validationSchema={registrationSchema}
+            onSubmit={(values: RegistrationFormProps) => {
                 console.log(values)
             }}
         >
@@ -27,8 +28,8 @@ export const LoginForm: React.FC = () => {
                 handleSubmit,
             }) => (
                 <form
-                    className="flex flex-col gap-6 mt-6"
-                    autoComplete="on"
+                    className="flex flex-col gap-6 mt-5"
+                    autoComplete="off"
                     onSubmit={handleSubmit}
                 >
                     <TextInput
@@ -52,6 +53,20 @@ export const LoginForm: React.FC = () => {
                             errors.password &&
                             touched.password &&
                             errors.password
+                        }
+                    />
+                    <TextInput
+                        id="repeatPassword"
+                        name="repeatPassword"
+                        type="password"
+                        placeholder="Repeat password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.repeatPassword}
+                        error={
+                            errors.repeatPassword &&
+                            touched.repeatPassword &&
+                            errors.repeatPassword
                         }
                     />
                     <Button styles="w-[336px] h-[48px] bg-contrast mt-10 mb-6 rounded-md self-center hover:bg-text hover:text-primaryPale">
