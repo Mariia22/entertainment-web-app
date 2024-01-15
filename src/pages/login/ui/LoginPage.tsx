@@ -3,6 +3,7 @@ import { LoginForm } from "../../../features/login/ui/LoginForm"
 import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
 import { RegistrationForm } from "../../../features/registration/ui/RegistrationForm"
 import { AuthFormLink } from "../../../shared/ui/Link/AuthFormLink"
+import { textsAndPlaceholders } from "../../../shared/model/appTextsAndPlaceHolders"
 
 export const LoginPage: React.FC = () => {
     const [isLogin, setLogin] = useState(true)
@@ -15,21 +16,25 @@ export const LoginPage: React.FC = () => {
         <main className="flex flex-col w-[400px] bg-primaryPale rounded-[20px] mt-20 px-8 py-8">
             {isLogin ? (
                 <>
-                    <HeaderSection>Login</HeaderSection>
+                    <HeaderSection>
+                        {textsAndPlaceholders.authForm.loginHeader}
+                    </HeaderSection>
                     <LoginForm />
                     <AuthFormLink
-                        text={"Don't have an account?"}
-                        link={"Sign Up"}
+                        text={textsAndPlaceholders.authForm.loginText}
+                        link={textsAndPlaceholders.authForm.registrationHeader}
                         handleClick={handleClick}
                     />
                 </>
             ) : (
                 <>
-                    <HeaderSection>Sign Up</HeaderSection>
+                    <HeaderSection>
+                        {textsAndPlaceholders.authForm.registrationHeader}
+                    </HeaderSection>
                     <RegistrationForm />
                     <AuthFormLink
-                        text={"Already have an account?"}
-                        link={"Login"}
+                        text={textsAndPlaceholders.authForm.registrationText}
+                        link={textsAndPlaceholders.authForm.loginHeader}
                         handleClick={handleClick}
                     />
                 </>

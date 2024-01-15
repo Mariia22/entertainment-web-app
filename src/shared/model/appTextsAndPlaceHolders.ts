@@ -16,4 +16,12 @@ export const textsAndPlaceholders = {
         bookmarkedTVSeries: "Bookmarked TV Series",
         recommendations: "Recommended for you",
     },
+    authForm: {
+        loginHeader: "Login",
+        registrationHeader: "Sign Up",
+        loginText: "Don't have an account?",
+        registrationText: "Already have an account?",
+        login: "Login to your account",
+        registration: "Create an account",
+    },
 }
