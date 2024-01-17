@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import React from "react"
 import { Navigate, createHashRouter } from "react-router-dom"
 import { BaseLayout } from "./ui/baseLayout"
 import { MainPage } from "../pages/main"
@@ -11,7 +11,7 @@ import { useAppSelector } from "../shared/model/hooks"
 import { selectIsAuthorized } from "../entities/session/model/slice"
 
 type AuthGuardProps = {
-    children: ReactElement
+    children: React.ReactElement
 }
 
 function GuestGuard({ children }: AuthGuardProps) {

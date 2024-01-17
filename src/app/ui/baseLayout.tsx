@@ -6,7 +6,7 @@ import { Navigation } from "../../shared/ui/Navigation/Navigation"
 import { UserAvatar } from "../../shared/ui/UserAvatar/UserAvatar"
 import { PageWrapper } from "../../shared/ui/PageWrapper/PageWrapper"
 
-export const BaseLayout = (
+export const BaseLayout: React.ReactNode = (
     <div className="flex flex-col font-light font-outfit min-w-[375px] w-screen overflow-hidden xl:flex-row ">
         <LayoutHeader>
             <Logo />
