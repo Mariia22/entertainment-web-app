@@ -5,20 +5,23 @@ import { Button } from "../../../shared/ui/Button/Button"
 import { TextInput } from "../../../shared/ui/TextInput/TextInput"
 import { textsAndPlaceholders } from "../../../shared/model/appTextsAndPlaceHolders"
 import { useAppDispatch } from "../../../shared/model/hooks"
-import { login } from "../../../entities/session/model/slice"
+import { turnOnIsAuth } from "../../../entities/session/model/slice"
 
 export const LoginForm: React.FC = () => {
     const dispatch = useAppDispatch()
 
-    function handleSubmit(email: string, password: string): void {
-        dispatch(login({ email, password }))
+    function handleSubmit(): void {
+        //While server is in development
+        // dispatch(login({ email, password }))
+        dispatch(turnOnIsAuth())
     }
 
     return (
         <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
-            onSubmit={(values) => handleSubmit(values.email, values.password)}
+            onSubmit={handleSubmit}
+            //onSubmit={(values) => handleSubmit(values.email, values.password)}
         >
             <Form className="flex flex-col gap-6 mt-6" autoComplete="on">
                 <Field

@@ -35,7 +35,11 @@ export const checkAuth = createAsyncThunk("login/checkAuth", async () => {
 export const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        turnOnIsAuth: (state) => {
+            state.isAuth = true
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(login.fulfilled, (state, action) => {
             state.isAuth = true
@@ -65,4 +69,5 @@ export const userSlice = createSlice({
     },
 })
 
+export const { turnOnIsAuth } = userSlice.actions
 export const { selectIsAuthorized, selectAuthError } = userSlice.selectors

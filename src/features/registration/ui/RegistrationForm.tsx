@@ -5,20 +5,23 @@ import { registrationSchema } from "../model/registrationFormSchema"
 import { TextInput } from "../../../shared/ui/TextInput/TextInput"
 import { textsAndPlaceholders } from "../../../shared/model/appTextsAndPlaceHolders"
 import { useAppDispatch } from "../../../shared/model/hooks"
-import { registration } from "../../../entities/session/model/slice"
+import { turnOnIsAuth } from "../../../entities/session/model/slice"
 
 export const RegistrationForm: React.FC = () => {
     const dispatch = useAppDispatch()
 
-    function handleSubmit(email: string, password: string): void {
-        dispatch(registration({ email, password }))
+    function handleSubmit(): void {
+        //While server is in development
+        //dispatch(registration({ email, password }))
+        dispatch(turnOnIsAuth())
     }
 
     return (
         <Formik
             initialValues={{ email: "", password: "", confirmPassword: "" }}
             validationSchema={registrationSchema}
-            onSubmit={(values) => handleSubmit(values.email, values.password)}
+            onSubmit={handleSubmit}
+            //onSubmit={(values) => handleSubmit(values.email, values.password)}
         >
             <Form className="flex flex-col gap-6 mt-5" autoComplete="on">
                 <Field
