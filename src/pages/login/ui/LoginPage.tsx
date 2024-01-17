@@ -4,9 +4,12 @@ import { HeaderSection } from "../../../shared/ui/HeaderSection/HeaderSection"
 import { RegistrationForm } from "../../../features/registration/ui/RegistrationForm"
 import { AuthFormLink } from "../../../shared/ui/Link/AuthFormLink"
 import { textsAndPlaceholders } from "../../../shared/model/appTextsAndPlaceHolders"
+import { useAppSelector } from "../../../shared/model/hooks"
+import { selectAuthError } from "../../../entities/session/model/slice"
 
 export const LoginPage: React.FC = () => {
     const [isLogin, setLogin] = useState(true)
+    const error = useAppSelector(selectAuthError)
 
     function handleClick() {
         setLogin(!isLogin)
@@ -39,6 +42,7 @@ export const LoginPage: React.FC = () => {
                     />
                 </>
             )}
+            {error && <p>{error?.message}</p>}
         </main>
     )
 }

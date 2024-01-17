@@ -6,13 +6,8 @@ export const registrationSchema = Yup.object({
         .required("Can't be empty"),
     password: Yup.string()
         .required("Can't be empty")
-        .min(8, "It should be 8 chars minimum")
-        .matches(
-            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-            "Add a special character"
-        ),
-    repeatPassword: Yup.string()
+        .min(8, "It should be 8 chars minimum"),
+    confirmPassword: Yup.string()
         .required("Can't be empty")
-        .min(8, "It should be 8 chars minimum")
-        .matches(/^(?=.*[@$!%*#?&]){8,}$/, "Add a special character"),
+        .oneOf([Yup.ref("password")], "Passwords don't match"),
 })

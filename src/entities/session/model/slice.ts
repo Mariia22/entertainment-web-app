@@ -1,20 +1,35 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { AuthSliceState } from "./types"
+import axios from "axios"
 import { loginUrl } from "../../../shared/api/baseApi"
+import AuthService from "../api/AuthService"
 
-const initialState = {
+const initialState: AuthSliceState = {
     isAuth: false,
-    loading: false,
     error: null,
 }
 
-export const login = createAsyncThunk("login/login", async () => {
-    const res = await fetch(loginUrl, {
-        headers: {
-            Accept: "application/json",
-        },
+export const login = createAsyncThunk(
+    "login/login",
+    async ({ email, password }: Record<string, string>) => {
+        const res = await AuthService.login(email, password)
+        return res.data
+    }
+)
+
+export const registration = createAsyncThunk(
+    "login/registration",
+    async ({ email, password }: Record<string, string>) => {
+        const res = await AuthService.registration(email, password)
+        return res.data
+    }
+)
+
+export const checkAuth = createAsyncThunk("login/checkAuth", async () => {
+    const res = await axios.get(`${loginUrl}/refresh`, {
+        withCredentials: true,
     })
-    const data = await res.json()
-    return data
+    return res.data
 })
 
 export const userSlice = createSlice({
@@ -22,19 +37,32 @@ export const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(login.pending, (state) => {
-            state.loading = true
+        builder.addCase(login.fulfilled, (state, action) => {
+            state.isAuth = true
+            localStorage.setItem("token", action.payload.accessToken)
         })
-        builder.addCase(login.fulfilled, (state) => {
-            state.loading = false
+        builder.addCase(login.rejected, (state, action) => {
+            state.error = action.error
         })
-        builder.addCase(login.rejected, (state) => {
-            state.loading = false
+        builder.addCase(registration.fulfilled, (state, action) => {
+            state.isAuth = true
+            localStorage.setItem("token", action.payload.accessToken)
+        })
+        builder.addCase(registration.rejected, (state, action) => {
+            state.error = action.error
+        })
+        builder.addCase(checkAuth.fulfilled, (state, action) => {
+            state.isAuth = true
+            localStorage.setItem("token", action.payload.accessToken)
+        })
+        builder.addCase(checkAuth.rejected, (state, action) => {
+            state.error = action.error
         })
     },
     selectors: {
         selectIsAuthorized: (sliceState) => sliceState.isAuth,
+        selectAuthError: (sliceState) => sliceState.error,
     },
 })
 
-export const { selectIsAuthorized } = userSlice.selectors
+export const { selectIsAuthorized, selectAuthError } = userSlice.selectors
