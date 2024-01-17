@@ -1,12 +1,12 @@
 {
-    "homepage": "",
+    "homepage": "https://mariia22.github.io/entertainment-web-app/",
     "name": "my-app",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build --base=/E-commerce-product-page/",
+        "build": "tsc && vite build --base=/entertainment-web-app/",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
