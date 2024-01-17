@@ -46,7 +46,7 @@ export const RegistrationForm: React.FC = () => {
                         type="password"
                         placeholder="Repeat password"
                     />
-                    <Button styles="w-[336px] h-[48px] bg-contrast mt-10 mb-6 rounded-md self-center hover:bg-text hover:text-primaryPale">
+                    <Button styles="w-full h-[48px] bg-contrast mt-10 mb-6 rounded-md self-center hover:bg-text hover:text-primaryPale">
                         {textsAndPlaceholders.authForm.registration}
                     </Button>
                 </form>
