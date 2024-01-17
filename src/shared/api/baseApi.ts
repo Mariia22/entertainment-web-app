@@ -2,8 +2,8 @@ import { AuthResponse } from "../../entities/session/model/types"
 import { errorMessage } from "./apiError"
 import axios from "axios"
 
-export const url = "public/lib/data.json"
-export const loginUrl = "public/lib/user.json"
+export const url = "assets/lib/data.json"
+export const loginUrl = "assets/lib/user.json"
 
 const api = axios.create({
     withCredentials: true,
