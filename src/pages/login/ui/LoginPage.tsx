@@ -13,7 +13,7 @@ export const LoginPage: React.FC = () => {
     }
 
     return (
-        <main className="flex flex-col w-[327px] xl:w-[400px] bg-primaryPale rounded-[20px] mt-14 xl:mt-20 px-8 py-8">
+        <main className="flex flex-col w-[327px] md:w-[400px] bg-primaryPale rounded-[20px] mt-14 xl:mt-20 px-8 py-8">
             {isLogin ? (
                 <>
                     <HeaderSection>
