@@ -8,7 +8,6 @@ import { EntertainmentCard, EntertainmentCardSlice } from "./types"
 import { url } from "../../../shared/api/baseApi"
 import { category } from "../api/types"
 import { RootState } from "../../../app/appStore"
-import axios from "axios"
 
 const initialState: EntertainmentCardSlice = {
     loading: false,
@@ -19,8 +18,9 @@ const initialState: EntertainmentCardSlice = {
 export const fetchContent = createAsyncThunk(
     "entertainment/fetchContent",
     async () => {
-        const res = await axios.get(url)
-        return res.data
+        const res = await fetch(url)
+        const data = await res.json()
+        return data
     }
 )
 
