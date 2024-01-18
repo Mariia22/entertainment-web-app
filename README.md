@@ -13,6 +13,6 @@ React + Vite
 TypeScript
 Tailwind-css
 Redux-toolkit
-Design - [https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X)https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X
+Design - [https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6/hub](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X)
 
-Live version - [https://mariia22.github.io/E-commerce-product-page/](https://mariia22.github.io/entertainment-web-app)https://mariia22.github.io/entertainment-web-app
+Live version - [https://mariia22.github.io/E-commerce-product-page/](https://mariia22.github.io/entertainment-web-app)
