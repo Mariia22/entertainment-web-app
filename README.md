@@ -1,4 +1,4 @@
-# entertainment-web-app
+# The multi-page entertainment web app
 This multi-page entertainment web app with routing, state management, and search functionality. The backend is in development so you can enter any pair of login and password, and the user will be authorized.
 
 Features:
