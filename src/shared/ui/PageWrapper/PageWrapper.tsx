@@ -32,5 +32,9 @@ export const PageWrapper: React.FC<WrapperProps> = ({ children }) => {
         )
     }
 
-    return <div className="flex flex-col pb-16">{children}</div>
+    return (
+        <div className="flex flex-col pl-4 pr-4 pb-16 md:pl-6 md:pr-6 xl:pl-8 xl:pr-8">
+            {children}
+        </div>
+    )
 }

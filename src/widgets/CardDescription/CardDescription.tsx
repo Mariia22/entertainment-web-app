@@ -46,7 +46,9 @@ export const CardDescription: React.FC<CardDescriptionProps> = ({
             </div>
             <p
                 className={`${
-                    isTrending ? "text-[15px]" : "text-sm"
+                    isTrending
+                        ? "text-[15px] md:text-[24px]"
+                        : "text-[14px] md:text-[18px]"
                 } font-medium`}
             >
                 {title}

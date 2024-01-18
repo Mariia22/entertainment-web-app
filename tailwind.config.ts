@@ -14,7 +14,15 @@ export default {
             outfit: ["Outfit", "sans-serif"],
         },
         fontSize: {
-            xl: [
+            headersm: [
+                "20px",
+                {
+                    lineHeight: "normal",
+                    letterSpacing: "-0.5px",
+                    fontWeight: "300",
+                },
+            ],
+            headerxl: [
                 "32px",
                 {
                     lineHeight: "normal",

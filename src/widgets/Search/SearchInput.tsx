@@ -37,7 +37,7 @@ export const Search: React.FC<SearchProps> = ({ placeholder, movies }) => {
     )
 
     return (
-        <form className="mt-3 pl-4 pr-4 xl:mt-10">
+        <form className="mt-3 xl:mt-10">
             <label className="flex justify-start items-center">
                 <svg
                     className="h-6 w-6 fill-text mr-4"

@@ -13,7 +13,7 @@ export const EntertainmentSection: React.FC<EntertainmentProps> = ({
     entertainments,
 }) => {
     return (
-        <section className="pl-8">
+        <section>
             <HeaderSection>{header}</HeaderSection>
             {entertainments.length > 0 ? (
                 <CardsLayout cards={entertainments} />

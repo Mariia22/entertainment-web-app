@@ -5,5 +5,5 @@ interface HeaderProps {
 }
 
 export const HeaderSection: React.FC<HeaderProps> = ({ children }) => {
-    return <h2 className="mt-6 text-xl">{children}</h2>
+    return <h2 className="mt-6 text-headersm md:text-headerxl">{children}</h2>
 }
