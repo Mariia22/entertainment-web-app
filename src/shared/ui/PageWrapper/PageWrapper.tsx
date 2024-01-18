@@ -25,7 +25,11 @@ export const PageWrapper: React.FC<WrapperProps> = ({ children }) => {
     }
 
     if (error) {
-        return <div>{errorMessage.download}</div>
+        return (
+            <div>{`${
+                errorMessage.download
+            },  (error - ${error.message?.toLowerCase()})`}</div>
+        )
     }
 
     return <div className="flex flex-col pb-16">{children}</div>
